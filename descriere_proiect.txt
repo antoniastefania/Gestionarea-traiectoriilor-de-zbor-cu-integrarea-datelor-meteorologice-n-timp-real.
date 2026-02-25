@@ -1,0 +1,1 @@
+Proiectul vizează proiectarea și implementarea unui sistem informatic de suport decizional destinat aeroporturilor și companiilor aeriene. Obiectivul principal este optimizarea traiectoriilor de zbor prin corelarea coordonatelor geografice cu variabilele meteorologice dinamice extrase în timp real.
