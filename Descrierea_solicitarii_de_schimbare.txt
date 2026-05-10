@@ -1,0 +1,11 @@
+Integrarea cazului de utilizare „Notificare Automată și Rerutare pentru Fenomene Meteo Extreme”
+
+-Contextul curent: În stadiul actual de dezvoltare al sistemului, modulul meteorologic este utilizat predominant în faza de planificare (pre-zbor) și pentru monitorizare. Deși sistemul colectează și afișează alertele meteo către dispecer (conform CF6), inițierea unui calcul pentru o nouă traiectorie și decizia de evitare a zonei periculoase reprezintă un proces exclusiv manual, dependent de vigilența și timpul de reacție al operatorului uman (Dispecer/Pilot).
+
+-Motivul schimbării (Justificare tehnică și de business): Scopul principal al acestei modificări este creșterea nivelului de siguranță a zborurilor. În cazul apariției bruște a unor fenomene meteorologice extreme (ex. furtuni supercelulare, turbulențe severe, microburst-uri), reacția umană poate fi prea lentă. Prin automatizarea procesului de rerutare, eliminăm timpii morți: sistemul va propune imediat o rută alternativă sigură, reducând stresul cognitiv al pilotului și oferindu-i instantaneu soluția optimă pentru a evita pericolul.
+
+-Impactul asupra sistemului (Analiza de impact):
+Introducerea acestei funcționalități aduce modificări la nivel funcțional și arhitectural:
+1. Modulul de Date Meteo: Trebuie modificat pentru a acționa ca un declanșator (trigger) automat atunci când pragurile de pericol sunt depășite, nu doar ca un furnizor pasiv de date.
+2. Motorul de Calcul (Optimizare Traiectorie): Va fi impactat, deoarece trebuie să suporte rularea automată (event-driven), independent de inputul manual al dispecerului, generând rezultatul într-un timp critic (maxim 5 secunde).
+3. Interfața Utilizator (Cockpit/Dispecerat): Interfețele trebuie actualizate pentru a suporta întreruperi de tip „Alertă Critică” (vizuală și sonoră), prezentând direct varianta de rerutare pentru acceptare rapidă.
